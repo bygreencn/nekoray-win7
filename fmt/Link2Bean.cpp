@@ -54,7 +54,13 @@ namespace NekoGui_fmt {
         if (serverPort == -1) serverPort = 443;
 
         // security
-        stream->network = GetQueryValue(query, "type", "tcp");
+
+        auto type =  GetQueryValue(query, "type", "tcp");
+        if (type == "h2") {
+            type = "http";
+        }
+        stream->network = type;
+
         if (proxy_type == proxy_Trojan) {
             stream->security = GetQueryValue(query, "security", "tls").replace("reality", "tls").replace("none", "");
         } else {
@@ -81,6 +87,9 @@ namespace NekoGui_fmt {
         } else if (stream->network == "http") {
             stream->path = GetQueryValue(query, "path", "");
             stream->host = GetQueryValue(query, "host", "").replace("|", ",");
+        } else if (stream->network == "httpupgrade") {
+            stream->path = GetQueryValue(query, "path", "");
+            stream->host = GetQueryValue(query, "host", "");
         } else if (stream->network == "grpc") {
             stream->path = GetQueryValue(query, "serviceName", "");
         } else if (stream->network == "tcp") {
@@ -199,6 +208,9 @@ namespace NekoGui_fmt {
             } else if (stream->network == "http") {
                 stream->path = GetQueryValue(query, "path", "");
                 stream->host = GetQueryValue(query, "host", "").replace("|", ",");
+            } else if (stream->network == "httpupgrade") {
+                stream->path = GetQueryValue(query, "path", "");
+                stream->host = GetQueryValue(query, "host", "");
             } else if (stream->network == "grpc") {
                 stream->path = GetQueryValue(query, "serviceName", "");
             } else if (stream->network == "tcp") {
