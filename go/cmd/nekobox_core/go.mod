@@ -1,10 +1,10 @@
 module nekobox_core
 
-go 1.19
+go 1.20
 
 require (
 	github.com/matsuridayo/libneko v1.0.0 // replaced
-	github.com/matsuridayo/sing-box-extra v1.0.0 // replaced
+	github.com/matsuridayo/sing-box-extra v1.8.4 // replaced
 	github.com/sagernet/sing-box v1.0.0 // replaced
 	// github.com/sagernet/sing-dns v1.0.0 // indirect; replaced
 	grpc_server v1.0.0

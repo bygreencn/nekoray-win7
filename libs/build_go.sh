@@ -29,10 +29,12 @@ pushd ../Xray-core
 Version_Xray=$(git log --pretty=format:'%h' -n 1)
 popd
 pushd go/cmd/nekoray_core
+go mod tidy
 go build -v -o $DEST -trimpath -ldflags "-w -s -X $neko_common.Version_v2ray=$Version_Xray -X $neko_common.Version_neko=$version_standalone"
 popd
 
 #### Go: nekobox_core ####
 pushd go/cmd/nekobox_core
+go mod tidy
 go build -v -o $DEST -trimpath -ldflags "-w -s -X $neko_common.Version_neko=$version_standalone" -tags "with_clash_api,with_gvisor,with_quic,with_wireguard,with_utls,with_ech"
 popd
