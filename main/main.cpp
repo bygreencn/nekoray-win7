@@ -13,7 +13,6 @@
 #include "main/NekoGui.hpp"
 
 #include "ui/mainwindow_interface.h"
-#include "ui/dialog_first_setup.h"
 
 #ifdef Q_OS_WIN
 #include "sys/windows/MiniDump.h"
@@ -141,7 +140,7 @@ int main(int argc, char* argv[]) {
             return 0;
         }
         // Some Bad System
-        QMessageBox::warning(nullptr, "NekoRay", "RunGuard disallow to run, use -many to force start.");
+        QMessageBox::warning(nullptr, "NekoGui", "RunGuard disallow to run, use -many to force start.");
         return 0;
     }
     MF_release_runguard = [&] { guard.release(); };
@@ -149,7 +148,7 @@ int main(int argc, char* argv[]) {
 // icons
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 11, 0))
     QIcon::setFallbackSearchPaths(QStringList{
-        ":/nekoray",
+        ":/neko",
         ":/icon",
     });
 #endif
@@ -157,28 +156,6 @@ int main(int argc, char* argv[]) {
     // icon for no theme
     if (QIcon::themeName().isEmpty()) {
         QIcon::setThemeName("breeze");
-    }
-
-    // Load coreType
-    auto coreLoaded = ReadFileText("groups/coreType");
-    if (coreLoaded.isEmpty()) {
-        NekoGui::coreType = -1;
-        loadTranslate(QLocale().name());
-        auto dialogFirstSetup = new DialogFirstSetup;
-        dialogFirstSetup->exec();
-        dialogFirstSetup->deleteLater();
-        if (NekoGui::coreType < 0) {
-            return 0;
-        } else {
-            QDir().mkdir("groups");
-            QFile file;
-            file.setFileName("groups/coreType");
-            file.open(QIODevice::ReadWrite | QIODevice::Truncate);
-            file.write(Int2String(NekoGui::coreType).toUtf8());
-            file.close();
-        }
-    } else {
-        NekoGui::coreType = coreLoaded.toInt();
     }
 
     // Dir
@@ -200,9 +177,6 @@ int main(int argc, char* argv[]) {
 
     // Load dataStore
     switch (NekoGui::coreType) {
-        case NekoGui::CoreType::V2RAY:
-            NekoGui::dataStore->fn = "groups/nekoray.json";
-            break;
         case NekoGui::CoreType::SING_BOX:
             NekoGui::dataStore->fn = "groups/nekobox.json";
             break;

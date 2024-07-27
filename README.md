@@ -1,16 +1,12 @@
-# NekoRay / NekoBox For PC
+# NekoBox For PC
 
-Qt based cross-platform GUI proxy configuration manager (backend: v2ray / sing-box)
+Qt based cross-platform GUI proxy configuration manager (backend: sing-box)
 
 Support Windows / Linux out of the box now.
 
-基于 Qt 的跨平台代理配置管理器 (后端 v2ray / sing-box)
+基于 Qt 的跨平台代理配置管理器 (后端 sing-box)
 
 目前支持 Windows / Linux 开箱即用
-
-## Readme Translations
-
-中文 / English / [fa_IR](README_fa.md) / [日本語](README_ja.md)
 
 ## 下载 / Download
 
@@ -29,7 +25,7 @@ Support Windows / Linux out of the box now.
 #### AUR
 
 - [nekoray](https://aur.archlinux.org/packages/nekoray)
-- [nekoray-git](https://aur.archlinux.org/packages/nekoray-git) [![AUR CI](https://github.com/MatsuriDayo/nekoray/actions/workflows/update-pkgbuild.yml/badge.svg)](https://github.com/MatsuriDayo/nekoray/actions/workflows/update-pkgbuild.yaml)
+- [nekoray-git](https://aur.archlinux.org/packages/nekoray-git)
 
 #### archlinuxcn
 
@@ -58,7 +54,6 @@ https://matsuridayo.github.io
 - Trojan
 - TUIC ( sing-box )
 - NaïveProxy ( Custom Core )
-- Hysteria ( Custom Core or sing-box )
 - Hysteria2 ( Custom Core or sing-box )
 - Custom Outbound
 - Custom Config
@@ -81,14 +76,6 @@ https://matsuridayo.github.io
 
 [Linux 运行教程](docs/Run_Linux.md)
 
-## macOS
-
-由于缺乏维护，不再提供 macOS 版本下载。
-
-您还可以在下面的存储库中非正式地获取更新版本。[非官方发布 / Unofficial releases](https://github.com/aaaamirabbas/nekoray-macos/releases)
-
-仍可以参照下方教程自行编译，常见问题请参考历史 Issue，欢迎 Pull Request 修复。
-
 ## 编译教程 / Compile Tutorial
 
 请看 [技术文档 / Technical documentation](https://github.com/MatsuriDayo/nekoray/tree/main/docs)
@@ -109,9 +96,6 @@ XMR
 
 `49bwESYQjoRL3xmvTcjZKHEKaiGywjLYVQJMUv79bXonGiyDCs8AzE3KiGW2ytTybBCpWJUvov8SjZZEGg66a4e59GXa6k5`
 
-- 您也可以通过 [Google Play](https://play.google.com/store/apps/details?id=moe.nb4a) 购买捐赠，另有支付宝微信购买方式，见 TG 频道置顶。
-- Donating via [Google Play](https://play.google.com/store/apps/details?id=moe.nb4a), using credit cards.
-
 ## Credits
 
 Core:
@@ -119,8 +103,8 @@ Core:
 - [v2fly/v2ray-core](https://github.com/v2fly/v2ray-core) ( < 3.10 )
 - [MatsuriDayo/Matsuri](https://github.com/MatsuriDayo/Matsuri) ( < 3.10 )
 - [MatsuriDayo/v2ray-core](https://github.com/MatsuriDayo/v2ray-core) ( < 3.10 )
-- [XTLS/Xray-core](https://github.com/XTLS/Xray-core) ( >= 3.10 )
-- [MatsuriDayo/Xray-core](https://github.com/MatsuriDayo/Xray-core) ( >= 3.10 )
+- [XTLS/Xray-core](https://github.com/XTLS/Xray-core) ( 3.10 <= Version <= 3.26 )
+- [MatsuriDayo/Xray-core](https://github.com/MatsuriDayo/Xray-core) ( 3.10 <= Version <= 3.26 )
 - [SagerNet/sing-box](https://github.com/SagerNet/sing-box)
 - [Matsuridayo/sing-box-extra](https://github.com/MatsuriDayo/sing-box-extra)
 

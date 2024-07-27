@@ -12,16 +12,8 @@
         <translation>فعال کردن</translation>
     </message>
     <message>
-        <source>HTTP Listen Port</source>
-        <translation>پورت HTTP درحال شنود</translation>
-    </message>
-    <message>
         <source>Listen Address</source>
         <translation>آدرس درحال شنود</translation>
-    </message>
-    <message>
-        <source>Socks Listen Port</source>
-        <translation>پورت ساکس درحال شنود</translation>
     </message>
     <message>
         <source>concurrency</source>
@@ -70,14 +62,6 @@
     <message>
         <source>Custom Inbound</source>
         <translation>ورودی سفارشی</translation>
-    </message>
-    <message>
-        <source>Asset Location</source>
-        <translation>مکان دارایی</translation>
-    </message>
-    <message>
-        <source>Default: dir of &quot;nekoray&quot;</source>
-        <translation type="unfinished">مسیر پیش فرض &quot;nekoray&quot;</translation>
     </message>
     <message>
         <source>Concurrent</source>
@@ -146,24 +130,8 @@
         <translation>هنگام به‌روزرسانی اشتراک، خطاهای TLS را نادیده گرفته شود</translation>
     </message>
     <message>
-        <source>Switch core</source>
-        <translation>سوئیچ هسته</translation>
-    </message>
-    <message>
-        <source>Enable hook.js</source>
-        <translation type="unfinished">فعال سازی hook.js</translation>
-    </message>
-    <message>
         <source>Advanced system proxy settings. Please select a format.</source>
         <translation>تنظیمات پیشرفته پروکسی سیستم. لطفا یک قالب را انتخاب کنید.</translation>
-    </message>
-    <message>
-        <source>Confirmation</source>
-        <translation>تائیدیه</translation>
-    </message>
-    <message>
-        <source>Switching the core to %1, click &quot;Yes&quot; to complete the switch and the program will restart. This feature may be unstable, please do not switch frequently.</source>
-        <translation>هسته به 1% تغییر میابد، روی  &quot;Yes&quot; کلیک کنید تا تغییر پایان یابد و برنامه ریستارت شود. این قابلیت ممکن است پایدار نباشد، لطفا مکررا تعویض نکنید</translation>
     </message>
     <message>
         <source>Please select a PNG file.</source>
@@ -214,16 +182,6 @@
         <translation type="unfinished">لغو دی ان اس زیربنایی</translation>
     </message>
     <message>
-        <source>It is recommended to leave it blank, but it sometimes does not work, at this time you can set this option.
-For NekoRay, this rewrites the underlying(localhost) DNS in Tun Mode.
-For NekoBox, this rewrites the underlying(localhost) DNS in Tun Mode, normal mode, and also URL Test.</source>
-        <translation type="unfinished">پیشنهاد میشود که این گزینه را انتخاب نشده باقی بگذارید ، اما گاهی اوقات کار نمیکند در این مواقع شما میتوانید این گزینه را انتخاب کنید ، برای Nekoray این گزینه دی ان اس زیربنایی را در حالت تونل بازنویسی میکند ، و برای NekoBox این گزینه دی ان اس زیربنایی را هم در حالت تونل و هم در حالت معمولی و تست آدرس بازنویسی میکند</translation>
-    </message>
-    <message>
-        <source>If you Tun Mode is not working, try to change this option.</source>
-        <translation type="unfinished">اگر حالت تونل برای شما کار نمیکند ، این گزینه را تغییر دهید</translation>
-    </message>
-    <message>
         <source>Default On</source>
         <translation type="unfinished">به صورت پیشفرض فعال</translation>
     </message>
@@ -257,6 +215,10 @@ For NekoBox, this rewrites the underlying(localhost) DNS in Tun Mode, normal mod
     </message>
     <message>
         <source>Old Share Link Format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mixed (SOCKS+HTTP) Listen Port</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -488,23 +450,6 @@ For NekoBox, this rewrites the underlying(localhost) DNS in Tun Mode, normal mod
     <message>
         <source>Reality short id. Accept only one value.</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DialogFirstSetup</name>
-    <message>
-        <source>First time setup</source>
-        <translation type="unfinished">تنظیم دفعه اول</translation>
-    </message>
-    <message>
-        <source>It looks like you are using this software for the first time, please select a core.
-
-These settings can be changed later.</source>
-        <translation type="unfinished">به نظر میرسد که شما برای اولین بار است که از این نرم افزار استفاده میکنید ، لطفا یک هسته را انتخاب کنید ، این تنظیمات میتواند بعدا تغییر یابد.</translation>
-    </message>
-    <message>
-        <source>Quit</source>
-        <translation type="unfinished">خروج</translation>
     </message>
 </context>
 <context>
@@ -905,14 +850,6 @@ This needs to be run NekoBox with administrator privileges.</source>
         <translation type="unfinished">گواهی</translation>
     </message>
     <message>
-        <source>Auth Type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Protocol</source>
-        <translation type="unfinished">پروتکل</translation>
-    </message>
-    <message>
         <source>Download (Mbps)</source>
         <translation type="unfinished">دانلود (مگابیت بر ثانیه)</translation>
     </message>
@@ -942,10 +879,6 @@ This needs to be run NekoBox with administrator privileges.</source>
     </message>
     <message>
         <source>SNI</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auth Payload</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1402,25 +1335,12 @@ This needs to be run NekoBox with administrator privileges.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Http inbound is not enabled, can&apos;t set system proxy.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>تنظیمات</translation>
-    </message>
-    <message>
         <source>Current server is incompatible with Tun. Please stop the server first, enable Tun Mode, and then restart.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not Running</source>
         <translation>در حال اجرا نیست</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translatorcomment>هیچ یک</translatorcomment>
-        <translation>هیچ یک</translation>
     </message>
     <message>
         <source>Select</source>

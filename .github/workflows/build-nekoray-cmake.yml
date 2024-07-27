@@ -4,20 +4,20 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Release Tag'
+        description: "Release Tag"
         required: true
       publish:
-        description: 'Publish: If want ignore'
+        description: "Publish: If want ignore"
         required: false
       artifact-pack:
-        description: 'artifact-pack: If want ignore'
+        description: "artifact-pack: If want ignore"
         required: false
 jobs:
   build-go:
     strategy:
       matrix:
-        cross_os: [ windows, linux ]
-        cross_arch: [ amd64 ]
+        cross_os: [windows, linux]
+        cross_arch: [amd64]
         include:
           - cross_os: public_res
             cross_arch: public_res
@@ -38,7 +38,7 @@ jobs:
         if: steps.cache-common.outputs.cache-hit != 'true'
         uses: actions/setup-go@v3
         with:
-          go-version: 1.20.14
+          go-version: 1.21.4
       - name: Build golang parts
         if: steps.cache-common.outputs.cache-hit != 'true'
         shell: bash
@@ -51,7 +51,7 @@ jobs:
         if: steps.cache-common.outputs.cache-hit != 'true'
         run: tar czvf artifacts.tgz ./deployment
       - name: Uploading Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
         with:
           name: NekoRay-${{ github.sha }}-Common-${{ matrix.cross_os }}-${{ matrix.cross_arch }}
           path: artifacts.tgz
@@ -64,7 +64,7 @@ jobs:
             qt_version: "5.15"
           - platform: windows-2022
             arch: x64
-            qt_version: "6.5"
+            qt_version: "6.7"
           - platform: ubuntu-20.04
             arch: x64
             qt_version: "5.12"
@@ -131,7 +131,7 @@ jobs:
           else
             cmake -GNinja -DQT_VERSION_MAJOR=6 -DCMAKE_BUILD_TYPE=Release ..
           fi
-          ninja
+          ninja -j2
           cd ..
           ./libs/deploy_windows64.sh
       - name: Linux - Generate MakeFile and Build
@@ -148,7 +148,7 @@ jobs:
         shell: bash
         run: tar czvf artifacts.tgz ./deployment
       - name: Uploading Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
         with:
           name: NekoRay-${{ github.sha }}-${{ matrix.platform }}-${{ matrix.arch }}-Qt${{ matrix.qt_version }}
           path: artifacts.tgz
@@ -210,7 +210,7 @@ jobs:
           cp -r public_res/* linux64
           ####
           bash ../libs/package_appimage.sh
-          mv nekoray-x86_64.AppImage $version_standalone-linux-x64.AppImage
+          mv nekobox-x86_64.AppImage $version_standalone-linux-x64.AppImage
       - name: Clean Up
         run: |
           cd deployment
@@ -220,7 +220,7 @@ jobs:
           rm -rf public_res
           rm -rf *.pdb
       - name: Uploading Artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v3
         with:
           name: Deployment-${{ github.sha }}
           path: deployment

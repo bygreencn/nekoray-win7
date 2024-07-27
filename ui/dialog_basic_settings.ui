@@ -95,7 +95,7 @@
             <item>
              <widget class="QLabel" name="inbound_socks_port_l">
               <property name="text">
-               <string>Socks Listen Port</string>
+               <string>Mixed (SOCKS+HTTP) Listen Port</string>
               </property>
              </widget>
             </item>
@@ -106,36 +106,6 @@
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item>
-          <widget class="QGroupBox" name="groupBox_http">
-           <layout class="QHBoxLayout" name="horizontalLayout_16">
-            <item>
-             <widget class="QLabel" name="label_5">
-              <property name="text">
-               <string>HTTP Listen Port</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLineEdit" name="inbound_http_port">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="http_enable">
-              <property name="text">
-               <string>Enable</string>
               </property>
              </widget>
             </item>
@@ -596,39 +566,7 @@
           <item>
            <widget class="QWidget" name="assest_group" native="true">
             <layout class="QGridLayout" name="gridLayout_2">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_12">
-               <property name="text">
-                <string>Asset Location</string>
-               </property>
-              </widget>
-             </item>
              <item row="0" column="1">
-              <layout class="QGridLayout" name="gridLayout_4">
-               <item row="0" column="0">
-                <widget class="MyLineEdit" name="core_v2ray_asset">
-                 <property name="placeholderText">
-                  <string>Default: dir of &quot;nekoray&quot;</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QPushButton" name="core_v2ray_asset_pick">
-                 <property name="text">
-                  <string>Select</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_3">
-               <property name="text">
-                <string notr="true">Loglevel</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
               <widget class="QComboBox" name="log_level">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
@@ -638,14 +576,21 @@
                </property>
               </widget>
              </item>
-             <item row="2" column="0">
+             <item row="1" column="0">
               <widget class="QLabel" name="label_6">
                <property name="text">
                 <string>Multiplex (mux)</string>
                </property>
               </widget>
              </item>
-             <item row="2" column="1">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_3">
+               <property name="text">
+                <string notr="true">Loglevel</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
               <layout class="QHBoxLayout" name="horizontalLayout">
                <item>
                 <widget class="QComboBox" name="mux_protocol"/>
@@ -689,55 +634,6 @@
          </layout>
         </widget>
        </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox3">
-         <property name="title">
-          <string>Switch core</string>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_21">
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="switch_core_v2ray">
-            <property name="text">
-             <string notr="true">Xray</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QRadioButton" name="switch_core_sing_box">
-            <property name="text">
-             <string notr="true">sing-box</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
-        </widget>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tab_6">
@@ -758,8 +654,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>198</width>
-            <height>58</height>
+            <width>632</width>
+            <height>299</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -805,44 +701,6 @@
          <property name="text">
           <string>Skip TLS certificate authentication by default (allowInsecure)</string>
          </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="horizontalGroupBox3">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_14">
-          <item>
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>Enable hook.js</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="enable_js_hook">
-            <item>
-             <property name="text">
-              <string notr="true">Disable</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string notr="true">Enable</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string notr="true">Enable + load std module</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
         </widget>
        </item>
        <item>
