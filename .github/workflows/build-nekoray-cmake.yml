@@ -16,7 +16,7 @@ jobs:
   build-go:
     strategy:
       matrix:
-        cross_os: [windows, linux]
+        cross_os: [windows]
         cross_arch: [amd64]
         include:
           - cross_os: public_res
@@ -65,9 +65,6 @@ jobs:
           - platform: windows-2022
             arch: x64
             qt_version: "6.7"
-          - platform: ubuntu-20.04
-            arch: x64
-            qt_version: "5.12"
       fail-fast: false
 
     runs-on: ${{ matrix.platform }}
@@ -134,15 +131,6 @@ jobs:
           ninja -j2
           cd ..
           ./libs/deploy_windows64.sh
-      - name: Linux - Generate MakeFile and Build
-        shell: bash
-        if: matrix.platform == 'ubuntu-20.04'
-        run: |
-          docker run --rm \
-            -v $PWD:/nekoray \
-            -w /nekoray \
-            ghcr.io/matsuridayo/debian10-qt5:20230131 \
-            bash -c "mkdir build && pushd build && cmake -GNinja -DCMAKE_BUILD_TYPE=Release .. && ninja && popd &&./libs/deploy_linux64.sh"
       # ========================================================================================================= Deployments
       - name: Tar files
         shell: bash
@@ -174,16 +162,11 @@ jobs:
           source libs/env_deploy.sh
           find . -name artifacts.tgz | xargs -n1 tar xvzf
           cd deployment
-          cp -r public_res/* linux64
           cp -r public_res/* windows64
           cp -r public_res/* windows7-x64
           cp windows64/neko*core.exe windows7-x64
           cp windows64/updater.exe windows7-x64
           rm -rf public_res *.pdb
-          ####
-          mv linux64 nekoray
-          zip -r $version_standalone-linux64.zip nekoray
-          rm -rf nekoray
           ####
           mv windows64 nekoray
           zip -r $version_standalone-windows64.zip nekoray
@@ -192,29 +175,9 @@ jobs:
           mv windows7-x64 nekoray
           zip -r $version_standalone-windows7-x64.zip nekoray
           rm -rf nekoray
-      - name: Pack Debian
-        run: |
-          source libs/env_deploy.sh
-          find . -name artifacts.tgz | xargs -n1 tar xvzf
-          cd deployment
-          cp -r public_res/* linux64
-          ####
-          bash ../libs/package_debian.sh ${{ github.event.inputs.tag }}
-          mv nekoray.deb $version_standalone-debian-x64.deb
-          sudo rm -rf nekoray
-      - name: Pack AppImage
-        run: |
-          source libs/env_deploy.sh
-          find . -name artifacts.tgz | xargs -n1 tar xvzf
-          cd deployment
-          cp -r public_res/* linux64
-          ####
-          bash ../libs/package_appimage.sh
-          mv nekobox-x86_64.AppImage $version_standalone-linux-x64.AppImage
       - name: Clean Up
         run: |
           cd deployment
-          rm -rf linux64
           rm -rf windows64
           rm -rf windows7-x64
           rm -rf public_res
