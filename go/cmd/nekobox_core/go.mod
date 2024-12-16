@@ -6,7 +6,7 @@ require (
 	github.com/matsuridayo/libneko v1.0.0
 	github.com/sagernet/sing-box v1.11.0-beta.11 
 	github.com/sagernet/sing-dns v0.4.0-beta.1
-	//grpc_server v1.0.0
+	grpc_server v1.0.0
 )
 
 require (
